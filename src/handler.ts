@@ -30,9 +30,9 @@ export class Handler {
     if (now.getHours() >= 7 && now.getHours() < 9) {
       return this.rand();
     } else if (now.getHours() >= 9 && now.getHours() < 17) {
-      return 6 * this.rand();
+      return 8 * this.rand();
     } else if (now.getHours() == 6) {
-      return 9 * this.rand();
+      return 6 * this.rand();
     } else {
       return 20 * this.rand();
     }
@@ -51,7 +51,8 @@ export class Handler {
     for (let i = 0; i < data.length; i++) {
       for (let x = 0; x < this.classes.length; x++) {
         if (data[i].subject == this.classes[x][0] && data[i].course == this.classes[x][1]) {
-          const msg = `${plan.day.charAt(0).toUpperCase() + plan.day.slice(1)} ${data[i].type} von ${data[i].time_start} bis ${data[i].time_end} in ${data[i].subject}`;
+          const extra_info = (data[i].type.includes('Raum')) ? ` in Raum ${data[i].room}` : '';
+          const msg = `${plan.day.charAt(0).toUpperCase() + plan.day.slice(1)} ${data[i].type}${extra_info} ${(data[i].time_start == data[i].time_end) ? `in der ${data[i].time_start}. Stunde` : `von ${data[i].time_start} bis ${data[i].time_end}`} in ${data[i].subject}`;
           console.log(msg);
           this.send_info(msg.replaceAll(' ', '+'));
         }
