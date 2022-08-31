@@ -7,8 +7,12 @@ const classes = [['M', 'L2'], ['GE', 'G2'], ['EK', 'G2'], ['SP', 'G2'], ['IF', '
 
 const plan_today = new Plan('Q1', 'heute');
 const handler_today = new Handler('Q1', classes, plan_today);
+handler_today.run();
+
 
 const plan_tomorrow = new Plan('Q1', 'morgen');
+const handler_tomorrow = new Handler('Q1', classes, plan_tomorrow);
+
 setTimeout(() => {
-  const handler_tomorrow = new Handler('Q1', classes, plan_tomorrow);
+  handler_tomorrow.run();
 }, 30000);

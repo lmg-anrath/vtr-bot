@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.33-alpha/deno-dom-wasm.ts";
 
 export interface Row {
@@ -12,7 +13,7 @@ export interface Row {
   alert: string
 }
 
-class Plan {
+export class Plan {
   url: string;
   year: string;
   formatted: Array<Row>;
@@ -94,8 +95,4 @@ class Plan {
     }
     return json;
   }
-}
-
-export {
-  Plan
 }

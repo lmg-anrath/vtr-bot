@@ -13,7 +13,6 @@ export class Handler {
     this.classes = _classes;
     this.year = _year;
     this.last_plan = [];
-    this.run();
   }
 
   run() {
@@ -76,7 +75,7 @@ export class Handler {
     return array;
   }
 
-  equal(ary1: any,ary2: any){
+  equal(ary1: Array<Row>,ary2: Array<Row>){
     return (ary1.join('') == ary2.join(''));
   }
 }
